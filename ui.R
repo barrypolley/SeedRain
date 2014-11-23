@@ -15,7 +15,7 @@ shinyUI(fluidPage(
         choices = list("Borer Flat" = 1, 
            "Hunters Hill" = 2, "Rough Creek" = 3,
            "Station Creek" = 4, "Thisbe Stream" = 5,
-           "Turret Head" = 6, "Wainui Stream" = 7), selected=c(1,2))
+           "Turret Head" = 6, "Wainui Stream" = 7))
       ),
     mainPanel(
       h2("Seed counts by month"),
