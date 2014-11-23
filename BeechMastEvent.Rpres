@@ -1,0 +1,74 @@
+Battle for our Birds in New Zealand
+========================================================
+author: Barry Polley
+date: 22 November 2014
+transition: fade
+transition-speed: slow
+
+The beech mast
+========================================================
+
+In certain years, and in certain locations:
+
+- Beech trees produce an extraordinary amount of seed based on unusual weather
+- Rats and mice reproduce based on having lots of seed to eat
+- Stoats reproduce based on having lots of rats and mice to eat
+- When the seed and mice are exhausted, stoats then feed on birds
+- So by controlling predator populations, birds have seed to eat
+
+We call this explosion of beech fruiting a beech mast. We use the locations and timing of beech masts to guide pest control in order to protect bird populations.
+
+From Dept of Conservation (NZ)
+========================================================
+
+![Predation Cycle](predator-cycle-diagram-565.jpg)
+
+
+Identifying beech mast sites
+========================================================
+
+```{r, echo=FALSE}
+# Load observations for viable Silver Beech seeds
+silver <- read.csv("SilverBeechViable.csv", header=TRUE)
+
+# Create empty plot frame
+plot(silver$month, silver$Cum.Sum,
+type="n",
+xlab="Month during year 2014",
+ylab="Cumulative count of viable Silver Beech seeds")
+
+# Different lines plotted for different locations
+# Approach based on Figure 11.19 in 'R In Action 2ed' by Robert Kabacoff (pub: Manning)
+sites <- c("Hunters Hill", "Borer Flat")
+elementCount <- 2
+colors <- rainbow(elementCount)
+linetype <- c(1:elementCount)
+plotchar <- seq(18, 18+elementCount, 1)
+
+# For the slide example, just use the two locations to illustrate patterm
+# For the Shiny app, this will be a user-selectable group of sites
+loc <- subset(silver, MonitoringPlace == "Hunters Hill")
+lines(loc$month, loc$Cum.Sum,
+      type="b", lwd=2,
+      lty=1,col=2,pch=18)
+loc <- subset(silver, MonitoringPlace == "Borer Flat")
+lines(loc$month, loc$Cum.Sum,
+      type="b", lwd=2,
+      lty=2,col=3,pch=19)
+legend("topleft", inset=.05, title="[Site]", col=c(2,3), pch=c(18,19), sites)
+```
+
+
+Hunters Hill - beech mast in 2014
+
+Borer Flat - no beech mast in 2014
+
+How this would be enhanced for real use
+========================================================
+
+- Compare counts across years
+- Also look at other species of beech tree
+- Clean up the graphics (name the months, for example)
+- Show nonviable seed counts as well as viable seed counts
+- Link the sites to a map (especially helpful for non-NZers)
+- Connect to an observation database rather than reading .csv extracts
