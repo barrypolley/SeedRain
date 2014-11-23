@@ -1,7 +1,6 @@
 shinyServer(function(input, output) {
 
-  # You can access the values of the widget (as a vector)
-  # with input$checkGroup, e.g.
+  # Use the input checkboxes to determine which lines to plot
   output$value <- renderPrint({ input$siteGroup })
 
 })

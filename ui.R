@@ -6,20 +6,21 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel( 
       h3("How To"),
-      p("Compare the seed fall for the 2014 season across several New Zealand sites by selecting and unselecting the checkboxes. A strong upward trend..."),
+      p("Compare the seed fall for the 2014 season across several New Zealand sites by selecting and unselecting the checkboxes. A strong upward trend in any given location implies that predator control will be needed to protect native birds near that location."),
       br(),
-      p("The slide show explains what this pattern means for conservation."),
+      p("The SeedRain slide show explains what this pattern means for conservation in more detail."),
       br(),
       checkboxGroupInput("siteGroup", 
         label = h3("Sites"), 
         choices = list("Borer Flat" = 1, 
            "Hunters Hill" = 2, "Rough Creek" = 3,
            "Station Creek" = 4, "Thisbe Stream" = 5,
-           "Turret Head" = 6, "Wainui Stream" = 7))
+           "Turret Head" = 6, "Wainui Stream" = 7), selected=c(1,2))
       ),
     mainPanel(
       h2("Seed counts by month"),
-      p("plot will go here")
+      p("plot will go here eventually"),
+      textOutput("value")
       )
   )
 ))
