@@ -12,15 +12,14 @@ shinyUI(fluidPage(
       br(),
       checkboxGroupInput("siteGroup", 
         label = h3("Sites"), 
-        choices = list("Borer Flat" = 1, 
-           "Hunters Hill" = 2, "Rough Creek" = 3,
-           "Station Creek" = 4, "Thisbe Stream" = 5,
-           "Turret Head" = 6, "Wainui Stream" = 7))
+        choices = list("Borer Flat", 
+           "Hunters Hill", "Rough Creek",
+           "Station Creek", "Thisbe Stream",
+           "Turret Head", "Wainui Stream"), selected="Borer Flat")
       ),
     mainPanel(
       h2("Seed counts by month"),
-      plotOutput("beech", height="600px"),
-      textOutput("value")
+      plotOutput("beech", height="600px")
       )
   )
 ))

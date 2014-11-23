@@ -1,10 +1,6 @@
 silver <- read.csv("SilverBeechViable.csv", header=TRUE)
 
 shinyServer(function(input, output) {
-
-  # Remove this and reference in ui.R when code works
-  output$value <- renderPrint({ input$siteGroup })
-
   # Use the input checkboxes to determine which lines to plot
   output$beech <- renderPlot({
     ## frame
@@ -13,7 +9,8 @@ shinyServer(function(input, output) {
          xlab="Month during year 2014",
          ylab="Cumulative count of viable Silver Beech seeds")
     ## setup
-    sites <- c("Borer Flat", "Hunters Hill", "Rough Creek", "Station Creek", "Thisbe Stream", "Turret Head", "Wainui Stream")
+    sites <- input$siteGroup
+    #sites <- c("Borer Flat", "Hunters Hill", "Rough Creek", "Station Creek", "Thisbe Stream", "Turret Head", "Wainui Stream")
     elementCount <- length(sites)
     colors <- rainbow(elementCount)
     linetype <- c(1:elementCount)
