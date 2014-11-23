@@ -19,7 +19,7 @@ shinyUI(fluidPage(
       ),
     mainPanel(
       h2("Seed counts by month"),
-      p("plot will go here eventually"),
+      plotOutput("beech", height="600px"),
       textOutput("value")
       )
   )
